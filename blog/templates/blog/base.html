@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+</head>
+<body>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div id="sidebar">
+        <h2>About me</h2>
+        <p>Morbi commodo interdum rutrum. Nunc dictum nulla quam, 
+            ac vestibulum diam tincidunt eu. Donec condimentum condimentum lorem, 
+            id cursus ipsum dignissim vitae. Integer nec orci eget lectus ornare volutpat ut a
+            nibh. Cras venenatis, purus nec aliquam pellentesque, nisi mauris porttitor eros, 
+            ut pharetra metus magna et lectus. Maecenas et est ligula. Sed ut ligula tincidunt, 
+            laoreet arcu quis, bibendum lorem. Ut suscipit tortor vel sem auctor laoreet. 
+            Nunc quis mi eu felis cursus tristique. Donec fringilla, metus non laoreet 
+            tristique, nunc ipsum tempus lacus, vitae convallis elit nunc eget augue. 
+            Aliquam volutpat id nisi nec bibendum. Nulla at pharetra sem.</p>
+    </div>
+</body>
+</html>
