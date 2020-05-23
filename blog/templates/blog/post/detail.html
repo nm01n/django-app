@@ -7,16 +7,11 @@
   <p class="date">
     Published {{ post.publish }} by {{ post.author }}
   </p>
-  {{ post.body|linebreaks }}
-  <p>
-    <a href="{% url "blog:post_share" post.id %}">
-      Share this post
-    </a>
-  </p>
+  {{ post.body|linebreaks }} 
   {% with comments.count as total_comments %}
-    <h2>
+    <h3>
       {{ total_comments }} comment{{ total_comments|pluralize }}
-    </h2>
+    </h3>
   {% endwith %}
   {% for comment in comments %}
     <div class="comment">
@@ -30,9 +25,9 @@
     <p>There are no comments yet.</p>
   {% endfor %}
   {% if new_comment %}
-    <h2>Your comment has been added.</h2>
+    <h3>Your comment has been added.</h3>
   {% else %}
-    <h2>Add a new comment</h2>
+    <h3>Add a new comment</h3>
     <form method="post">
       {{ comment_form.as_p }}
       {% csrf_token %}
