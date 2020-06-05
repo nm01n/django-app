@@ -1,9 +1,11 @@
+{% load blog_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static "css/blog.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
     <div id="content">
@@ -12,6 +14,7 @@
     </div>
     <div id="sidebar">
         <h2>About me</h2>
+        <p>This is my blog. I've written {% total_posts %} posts so far.</p>
         <p>Morbi commodo interdum rutrum. Nunc dictum nulla quam, 
             ac vestibulum diam tincidunt eu. Donec condimentum condimentum lorem, 
             id cursus ipsum dignissim vitae. Integer nec orci eget lectus ornare volutpat ut a
@@ -21,17 +24,18 @@
             Nunc quis mi eu felis cursus tristique. Donec fringilla, metus non laoreet 
             tristique, nunc ipsum tempus lacus, vitae convallis elit nunc eget augue. 
             Aliquam volutpat id nisi nec bibendum. Nulla at pharetra sem.</p>
+        <h3>Latest posts</h3>
+        {% show_latest_posts 3 %}   
+        <h3>Most commented posts</h3>
+        {% get_most_commented_posts as most_commented_posts %}
+        <ul>
+            {% for post in most_commented_posts %}
+                <li>
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
-    <div class="admin-panel">
-        <a href="/admin">Admin</a>
-        <a href="" class ="btn btn-light">Create</a>
-        <a href="" class ="btn btn-light">Edit</a>
-        <a href="" class ="btn btn-danger">Delete</a>
-    </div>
-    
-    
-        
-    
 </body>
 </html>
 
