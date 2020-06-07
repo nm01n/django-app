@@ -35,6 +35,13 @@
                 </li>
             {% endfor %}
         </ul>
+        <p>
+            <a href="{% url "blog:post_feed" %}">RSS</a>
+        </p>
+    </div>
+    <div class="admin-panel">
+        <a href="/admin">Admin</a>
+        {% block admin-panel %}{% endblock %}
     </div>
 </body>
 </html>
