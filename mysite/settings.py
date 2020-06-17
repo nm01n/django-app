@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,8 +42,7 @@ INSTALLED_APPS = [
     'taggit',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'django.contrib.postgres',
-    'account.apps.AccountConfig',
+    'django.contrib.postgres',    
 
 ]
 
@@ -130,3 +130,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
