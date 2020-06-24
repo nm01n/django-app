@@ -11,9 +11,9 @@
   </p>
   {{ post.body|markdown }} 
   {% with comments.count as total_comments %}
-    <h3>
+    <h5>
       {{ total_comments }} comment{{ total_comments|pluralize }}
-    </h3>
+    </h5>
   {% endwith %}
   {% for comment in comments %}
     <div class="comment">
@@ -27,9 +27,9 @@
     <p>There are no comments yet.</p>
   {% endfor %}
   {% if new_comment %}
-    <h3>Your comment has been added.</h3>
+    <h5>Your comment has been added.</h5>
   {% else %}
-    <h3>Add a new comment</h3>
+    <h5>Add a new comment</h5>
     <form method="post">
       {{ comment_form.as_p }}
       {% csrf_token %}

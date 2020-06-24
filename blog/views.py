@@ -19,8 +19,7 @@ def post_detail(request, year, month, day, post):
                                    publish__year=year,
                                    publish__month=month,
                                    publish__day=day)
-
-    # List of active comments for this post
+# List of active comments for this post
     comments = post.comments.filter(active=True)
 
     new_comment = None

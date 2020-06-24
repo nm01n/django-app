@@ -15,5 +15,12 @@
       Published {{ post.publish }} by {{ post.author }}
     </p>
     {{ post.body|markdown|truncatewords_html:30 }}
+    {% with comments.count as total_comments %}
+    <p>
+      <a href="{{ post.get_absolute_url }}">       
+        {{ total_comments }} Comments {{ total_comments|pluralize }}
+    </p>
+    {% endwith %}
+      </a>
   {% endfor %} 
 {% endblock %}

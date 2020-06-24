@@ -40,6 +40,8 @@ class Post(models.Model):
                        args=[self.publish.year,
                              self.publish.month,
                              self.publish.day, self.slug])
+    def __str__(self):
+        return f'Comment by {self.name} on {self.post}'
 
 class Comment(models.Model):
     post = models.ForeignKey(Post,
